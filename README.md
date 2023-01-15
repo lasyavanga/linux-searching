@@ -47,5 +47,5 @@
   Example: I want to find all the folders that have `five` in their name case sensitive
 
   ```
-  find . -name four -type d
+  find . -name five -type d
   ```
