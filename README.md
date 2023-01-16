@@ -1,51 +1,67 @@
-# How to search in the Linux Command Line
+# How to search for specific words in files in the Linux Command Line
 
-### We use the command `find` to find files or folders in Linux
+### We use the command `grep` to find files or folders in Linux
 
-- To find all the files (Case Insensitive):
+- To find a specific word in specific files (Case Insensitive):
 
-  ```
-  $ find <folder-you-want-to-search-in> -iname <file-name> -type f
-  ```
-
-  Example: I want to find all the files that have `three` in their name case insensitive
+  Note - You can find this specific word in as many files as you want, so please note that instead of just typing two files, type as many as you want
 
   ```
-  find . -iname three.txt -type f
+   $ grep -i <word-you-want-to-find> <file-you-will-search-in> <file-you-will-search-in->
   ```
 
-- To find all the files (Case Sensitive):
+  Example: I want to find where the word `three` is in the file three/three.txt Three/Three.txt and THREE/THREE.txt case insensitive
 
   ```
-  $ find <folder-you-want-to-search-in> -name <file-name> -type f
+  grep -i three three/three.txt Three/Three.txt THREE/THREE.txt
   ```
 
-  Example: I want to find all the files that have `two` in their name case sensitive
+- To find a specific word in specific files (Case Sensitive):
+
+  Note - You can find this specific word in as many files as you want, so please note that instead of just typing two files, type as many as you want
 
   ```
-  find . -name two.txt -type f
+   $ grep <word-you-want-to-find> <file-you-will-search-in> <file-you-will-search-in->
   ```
 
-- To find all the folders (Case Insensitive):
+  Example: I want to find where the word `three` is in the file three/three.txt Three/Three.txt THREE/THREE.txt case sensitive
 
   ```
-  $ find <folder-you-want-to-search-in> -iname <folder-name> -type d
+  grep -i three three/three.txt THREE/THREE.txt Three/Three.txt
   ```
 
-  Example: I want to find all the folders that have `four` in their name case insensitive
+- To find a specific word recursively, searching in all files in the current directory (Case Insensitive):
 
   ```
-  find . -iname four -type d
+  $ grep -ri <word-you-want-to-find> *
   ```
 
-- To find all the folders (Case Sensitive):
+  Example: I want to find all the files that have `four` in them case insensitive
 
   ```
-  $ find <folder-you-want-to-search-in> -name <folder-name> -type d
+  grep -ri four *
   ```
 
-  Example: I want to find all the folders that have `five` in their name case sensitive
+  Or, if I want to find all the files that have the extension .txt, and the content is `one` case insensitive:
 
   ```
-  find . -name five -type d
+  grep -ri --include="*.txt" one
+  ```
+
+- To find a specific word recursively, searching in all files in the current directory (Case Sensitive):
+
+  ```
+  $ grep -r <word-you-want-to-find> *
+  ```
+
+  Example: I want to find all the files that have `four` in them case sensitive
+
+  ```
+  grep -r four *
+  ```
+
+  Or, if I want to find all the files that have the extension .txt, and the content is `two` case sensitive:
+
+  ```
+  grep -r --include="*.txt" two
   ```
